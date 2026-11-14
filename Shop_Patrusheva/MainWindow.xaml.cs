@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Shop_Patrusheva.Classes;
 
 namespace Shop_Patrusheva
 {
@@ -20,9 +21,21 @@ namespace Shop_Patrusheva
     /// </summary>
     public partial class MainWindow : Window
     {
+        // полчение данных из репазитория
+        List<object> AllItems = RepoItems.AllItems();
         public MainWindow()
         {
             InitializeComponent();
+            CreateUI();
+        }
+
+        // пребеор документов и добавление в UI
+        public void CreateUI()
+        {
+            foreach (object item in AllItems)
+            {
+                parent.Children.Add(new Elements.Item(item));
+            }
         }
     }
 }
