@@ -36,6 +36,13 @@
                     Grid.Row="1"  
                     VerticalAlignment="Top" 
                     Foreground="White"/>
+                <Label 
+                    Name="SCharackteristic" 
+                    Content="Характерситика" 
+                    Margin="10,102,10,0" 
+                    Grid.Row="1"  
+                    VerticalAlignment="Top" 
+                    Foreground="White"/>
             </Grid>
             <Border.Effect>
                 <DropShadowEffect BlurRadius="3"/>

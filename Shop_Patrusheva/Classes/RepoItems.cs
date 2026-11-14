@@ -17,9 +17,12 @@ namespace Shop_Patrusheva.Classes
             allItems.Add(new Children("Мягкая игрушка кошка подушка", 1754, 6));
             allItems.Add(new Sport("Спортивный мужской костюм", 4913, "S"));
             allItems.Add(new Sport("Мяч для водного поло", 812, "61-63 см"));
-            allItems.Add(new Sport("Набор для гольфа Partida", 3950, "600*800 мм")); 
+            allItems.Add(new Sport("Набор для гольфа Partida", 3950, "600*800 мм"));
+            allItems.Add(new Electronika("Электро самокат Tribe Karo", 20500, "10,5 А·ч", "25 км/ч"));
+            allItems.Add(new Electronika("Эдектро самокат AOVO M365 Pro", 32499, "20,5 А·ч", "32 км/ч"));
+            allItems.Add(new Electronika("Электровелосипед Kugoo V3", 50799, "30,5 А·ч", "45 км/ч"));
 
-             return allItems;
+            return allItems;
         }
     }
 }

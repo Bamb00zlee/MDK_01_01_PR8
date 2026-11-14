@@ -35,13 +35,24 @@ namespace Shop_Patrusheva.Elements
             {
                 Children ChildrenData  = item as Children; // преобразовываем в детскеи товары
                 ICharackteristic.Content = "Возраст: " + ChildrenData.Age;
+                SCharackteristic.Content = "";
             }
 
             // проверяем можем ли преобразовать в спортивные товары
             else if (item is Sport)
             {
                 Sport SportData = item as Sport;
-                ICharackteristic.Content = "Рзмер: " + SportData.Size;
+                ICharackteristic.Content = "Размер: " + SportData.Size;
+                SCharackteristic.Content = "";
+            }
+
+            else if (item is Electronika)
+            {
+                Electronika SportData = item as Electronika;
+                ICharackteristic.Content = "Ёмкость аккумулятора: " + SportData.BatteryCapacity;
+                SCharackteristic.Content = "Скорость езды: " + SportData.DrivingSpeed;
+
+
             }
 
         }
