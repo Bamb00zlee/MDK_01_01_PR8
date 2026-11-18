@@ -1,18 +1,7 @@
-﻿using System;
+﻿using Shop_Patrusheva.Classes;
+using Shop_Patrusheva.Elements;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Shop_Patrusheva.Classes;
 
 namespace Shop_Patrusheva
 {
@@ -35,6 +24,34 @@ namespace Shop_Patrusheva
             foreach (object item in AllItems)
             {
                 parent.Children.Add(new Elements.Item(item));
+            }
+        }
+
+        private void Cerch_click(object sender, RoutedEventArgs e)
+        {
+            string serch_string = For_serch.Text.ToLower();
+            parent.Children.Clear();
+
+            foreach (object obj in RepoItems.AllItems())   // или твой AllItems
+            {
+                if (!(obj is Shop shop)) continue;
+
+                // берем характеристики из базового класса
+                string all = $"{shop.Name} {shop.Price}".ToLower();
+
+                // добавляем характеристики из дочернего класса
+                if (shop is Sport s)
+                    all += $" {s.Size}".ToLower();
+                else if (shop is Electronika el)
+                    all += $" {el.BatteryCapacity} {el.DrivingSpeed}".ToLower();
+                else if (shop is Children c)
+                    all += $" {c.Age}".ToLower();
+
+                // содержит ли искомый элемент
+                if (all.Contains(serch_string))
+                {
+                    parent.Children.Add(new Item(shop));
+                }
             }
         }
     }
